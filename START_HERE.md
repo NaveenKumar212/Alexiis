@@ -1,4 +1,4 @@
-# 👋 Welcome to Greta AI!
+# 👋 Welcome to Alexis!
 
 ## You Downloaded This From GitHub - Now What?
 
@@ -228,4 +228,4 @@ All your answers are in these files:
 
 **Happy Building! 🎨✨**
 
-*The Greta AI Team*
+*The Alexis Team*

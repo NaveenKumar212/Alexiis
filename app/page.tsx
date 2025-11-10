@@ -21,7 +21,7 @@ export default function Home() {
                 <Wand2 className="w-6 h-6 text-black" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                Greta AI
+                Alexis
               </span>
             </div>
             <div className="flex items-center space-x-6">
@@ -193,7 +193,7 @@ export default function Home() {
                 Ready to Launch Your Website?
               </h2>
               <p className="text-xl mb-10 text-black/80 max-w-2xl mx-auto">
-                Join thousands of businesses using Greta AI to create stunning websites in minutes
+                Join thousands of businesses using Alexis to create stunning websites in minutes
               </p>
               <Link
                 href="/generate"
@@ -216,7 +216,7 @@ export default function Home() {
                 <Wand2 className="w-5 h-5 text-black" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                Greta AI
+                Alexis
               </span>
             </div>
             <p className="text-gray-400">AI-Powered Website Generation Platform</p>

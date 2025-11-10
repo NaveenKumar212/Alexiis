@@ -351,7 +351,7 @@ function CustomizeContent() {
                 <Wand2 className="w-6 h-6 text-black" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                Greta AI
+                Alexis
               </span>
             </div>
             <div className="flex space-x-2">

@@ -95,7 +95,7 @@ export default function GeneratePage() {
                 <Wand2 className="w-6 h-6 text-black" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                Greta AI
+                Alexis
               </span>
             </Link>
             <div className="flex items-center space-x-6">
@@ -223,7 +223,7 @@ export default function GeneratePage() {
                 <Wand2 className="w-5 h-5 text-black" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                Greta AI
+                Alexis
               </span>
             </div>
             <p className="text-gray-400">AI-Powered Website Generation Platform</p>

@@ -1,6 +1,6 @@
 # ⚡ Quick Start - 5 Minutes Setup
 
-Get Greta AI running in 5 minutes! Follow these steps in order.
+Get Alexis running in 5 minutes! Follow these steps in order.
 
 ## ✅ Checklist
 
@@ -69,7 +69,7 @@ Open: **http://localhost:3000**
 
 ## 🎉 Done!
 
-You should see the Greta AI homepage.
+You should see the Alexis homepage.
 
 Try these:
 - Click "Create with AI"

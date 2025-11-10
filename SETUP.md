@@ -1,6 +1,6 @@
-# Complete Setup Guide - Greta AI
+# Complete Setup Guide - Alexis
 
-Follow these steps to get the Greta AI application running on your local machine.
+Follow these steps to get the Alexis application running on your local machine.
 
 ## 📋 Prerequisites
 
@@ -154,7 +154,7 @@ You should see output like:
 
 1. Open your web browser
 2. Go to: **http://localhost:3000**
-3. You should see the Greta AI homepage! 🎉
+3. You should see the Alexis homepage! 🎉
 
 ---
 
@@ -321,7 +321,7 @@ If you encounter issues:
 
 If you can:
 - ✅ Open http://localhost:3000
-- ✅ See the Greta AI homepage
+- ✅ See the Alexis homepage
 - ✅ Generate a website with AI
 - ✅ Browse and customize templates
 
@@ -366,4 +366,4 @@ For more information:
 
 ---
 
-**Happy building with Greta AI! 🎨✨**
+**Happy building with Alexis! 🎨✨**

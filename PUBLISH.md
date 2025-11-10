@@ -1,6 +1,6 @@
 # 🚀 Ready to Publish!
 
-Your Greta AI application is now configured and ready for deployment!
+Your Alexis application is now configured and ready for deployment!
 
 ## ✅ What's Been Done
 

@@ -1,4 +1,4 @@
-# Deployment Guide for Greta AI
+# Deployment Guide for Alexis
 
 This application is configured for static export and can be deployed to various hosting platforms.
 

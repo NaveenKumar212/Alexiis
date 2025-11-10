@@ -179,7 +179,7 @@ npm run dev
 ### What you should see:
 
 **Header:**
-- "Greta AI" logo (top left, emerald/cyan gradient)
+- "Alexis" logo (top left, emerald/cyan gradient)
 - Navigation links: Home, Templates, Create with AI
 - "Get Started" button (emerald/cyan gradient)
 
@@ -194,7 +194,7 @@ npm run dev
 - Dark background with white cards
 
 **Footer:**
-- Greta AI branding
+- Alexis branding
 - Links and copyright
 
 ✅ **Success:** All sections visible, no broken images
@@ -326,7 +326,7 @@ When everything is set up correctly:
 | Database | 3 tables in Table Editor |
 | .env File | File exists in root with both values |
 | Dev Server | "Ready in X.Xs" message |
-| Homepage | Full page with Greta AI branding |
+| Homepage | Full page with Alexis branding |
 | AI Generate | Preview loads with relevant design |
 | Templates | Grid of template cards visible |
 

@@ -1,6 +1,6 @@
 # 📋 Installation Checklist
 
-Print this or keep it open while setting up Greta AI.
+Print this or keep it open while setting up Alexis.
 
 ---
 
@@ -148,7 +148,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=paste_key_from_step_4
 
 - [ ] Open browser
 - [ ] Go to: `http://localhost:3000`
-- [ ] You should see the Greta AI homepage
+- [ ] You should see the Alexis homepage
 
 **Test Features:**
 
@@ -232,7 +232,7 @@ Check these files in your project:
 
 **Congratulations!** 🎉
 
-Your Greta AI application is running!
+Your Alexis application is running!
 
 **What's Next?**
 

@@ -1,4 +1,4 @@
-# Greta AI - AI-Powered Website Generation Platform
+# Alexis - AI-Powered Website Generation Platform
 
 A modern, production-ready web application that generates stunning websites using AI and provides 37+ premium templates across multiple industries.
 
@@ -211,4 +211,4 @@ For issues and questions:
 
 ---
 
-**Built with ❤️ using Greta AI**
+**Built with ❤️ using Alexis**
