@@ -510,21 +510,342 @@ export function generateMinimalistLayout(data: TemplateData): string {
 </html>`;
 }
 
-// Template selector based on app type
+// Template 4: Card-Based Grid Layout
+export function generateCardGridLayout(data: TemplateData): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${data.appName}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-primary { background: linear-gradient(135deg, ${data.colors.primary}, ${data.colors.secondary}); }
+    .text-gradient {
+      background: linear-gradient(135deg, ${data.colors.primary}, ${data.colors.secondary});
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="antialiased bg-gray-50">
+
+  <nav class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <span class="text-2xl font-bold text-gradient">${data.appName}</span>
+        <div class="flex space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-gray-900 transition">Home</a>
+          <a href="#services" class="text-gray-700 hover:text-gray-900 transition">Services</a>
+          <a href="#contact" class="text-gray-700 hover:text-gray-900 transition">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-6xl font-bold mb-6">${data.hero.headline}</h1>
+        <p class="text-2xl text-gray-600 mb-8">${data.hero.subheadline}</p>
+        <button class="px-10 py-4 rounded-full text-white font-bold text-lg hover:shadow-xl transition gradient-primary">
+          ${data.hero.cta1}
+        </button>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        ${data.images.feature.map((img, i) => `
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="${img}" alt="Feature ${i + 1}" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">${data.features[i]?.title || 'Feature'}</h3>
+            <p class="text-gray-600">${data.features[i]?.description || 'Description'}</p>
+          </div>
+        </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-20 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold text-center mb-16">Our <span class="text-gradient">Services</span></h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        ${data.features.map((feature, i) => `
+        <div class="p-8 rounded-2xl border-2 border-gray-100 hover:border-transparent hover:shadow-xl transition">
+          <div class="text-4xl mb-4">${['🚀', '⚡', '🎯', '💎', '🔥', '✨'][i] || '💫'}</div>
+          <h3 class="text-2xl font-bold mb-3">${feature.title}</h3>
+          <p class="text-gray-600">${feature.description}</p>
+        </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 px-4 gradient-primary text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-bold mb-8">Ready to Get Started?</h2>
+      <p class="text-xl mb-10 opacity-90">${data.hero.subheadline}</p>
+      <button class="px-10 py-4 bg-white rounded-full font-bold text-lg hover:shadow-2xl transition" style="color: ${data.colors.primary};">
+        Contact Us Now
+      </button>
+    </div>
+  </section>
+
+  <footer class="py-8 px-4 bg-gray-900 text-white text-center">
+    <p>&copy; 2024 ${data.appName}. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>`;
+}
+
+// Template 5: Bento Grid Layout
+export function generateBentoLayout(data: TemplateData): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${data.appName}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-primary { background: linear-gradient(135deg, ${data.colors.primary}, ${data.colors.secondary}); }
+    .text-gradient {
+      background: linear-gradient(135deg, ${data.colors.primary}, ${data.colors.secondary});
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="antialiased bg-white">
+
+  <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="text-2xl font-bold">${data.appName}</span>
+      <button class="px-6 py-2 rounded-full text-white font-semibold gradient-primary">${data.hero.cta1}</button>
+    </div>
+  </nav>
+
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 gradient-primary rounded-3xl p-12 text-white">
+          <h1 class="text-6xl font-bold mb-6">${data.hero.headline}</h1>
+          <p class="text-2xl mb-8 opacity-90">${data.hero.subheadline}</p>
+          <button class="px-8 py-4 bg-white rounded-xl font-bold text-lg hover:shadow-xl transition" style="color: ${data.colors.primary};">
+            ${data.hero.cta1}
+          </button>
+        </div>
+        <div class="rounded-3xl overflow-hidden">
+          <img src="${data.images.hero}" alt="${data.appName}" class="w-full h-full object-cover">
+        </div>
+        ${data.images.feature.slice(0, 2).map((img, i) => `
+        <div class="rounded-3xl overflow-hidden relative group">
+          <img src="${img}" alt="Feature ${i + 1}" class="w-full h-80 object-cover">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+            <div class="text-white text-center p-6">
+              <h3 class="text-2xl font-bold mb-2">${data.features[i]?.title}</h3>
+              <p>${data.features[i]?.description}</p>
+            </div>
+          </div>
+        </div>
+        `).join('')}
+        <div class="bg-gray-50 rounded-3xl p-10">
+          <h2 class="text-4xl font-bold mb-6">Features</h2>
+          <ul class="space-y-4">
+            ${data.features.slice(0, 4).map(f => `<li class="flex items-center"><span class="mr-3 text-2xl">✓</span>${f.title}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold text-center mb-16">What We <span class="text-gradient">Offer</span></h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        ${data.features.map((feature, i) => `
+        <div class="bg-white rounded-2xl p-8 hover:shadow-2xl transition">
+          <div class="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center text-white text-2xl font-bold mb-6">
+            ${i + 1}
+          </div>
+          <h3 class="text-2xl font-bold mb-4">${feature.title}</h3>
+          <p class="text-gray-600">${feature.description}</p>
+        </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-bold mb-6">Ready to Transform?</h2>
+      <p class="text-2xl text-gray-600 mb-10">${data.hero.subheadline}</p>
+      <button class="px-12 py-5 rounded-2xl text-white font-bold text-lg hover:shadow-2xl transition gradient-primary">
+        Get Started Today
+      </button>
+    </div>
+  </section>
+
+  <footer class="py-12 px-6 bg-gray-900 text-white text-center">
+    <p class="text-gray-400">&copy; 2024 ${data.appName}. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>`;
+}
+
+// Template 6: Sidebar Navigation Layout
+export function generateSidebarLayout(data: TemplateData): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${data.appName}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-primary { background: linear-gradient(135deg, ${data.colors.primary}, ${data.colors.secondary}); }
+    .text-gradient {
+      background: linear-gradient(135deg, ${data.colors.primary}, ${data.colors.secondary});
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="antialiased bg-white flex">
+
+  <aside class="fixed left-0 top-0 h-screen w-64 bg-gray-900 text-white p-8 flex flex-col">
+    <div class="mb-12">
+      <h1 class="text-2xl font-bold mb-2">${data.appName}</h1>
+      <p class="text-gray-400 text-sm">Professional Services</p>
+    </div>
+    <nav class="flex-1 space-y-4">
+      <a href="#home" class="block py-2 px-4 rounded-lg hover:bg-gray-800 transition">Home</a>
+      <a href="#services" class="block py-2 px-4 rounded-lg hover:bg-gray-800 transition">Services</a>
+      <a href="#portfolio" class="block py-2 px-4 rounded-lg hover:bg-gray-800 transition">Portfolio</a>
+      <a href="#contact" class="block py-2 px-4 rounded-lg hover:bg-gray-800 transition">Contact</a>
+    </nav>
+    <button class="mt-auto px-6 py-3 rounded-lg font-semibold gradient-primary">${data.hero.cta1}</button>
+  </aside>
+
+  <main class="ml-64 flex-1">
+    <section id="home" class="min-h-screen flex items-center px-12 py-20">
+      <div class="max-w-4xl">
+        <h2 class="text-7xl font-bold mb-6 leading-tight">${data.hero.headline}</h2>
+        <p class="text-2xl text-gray-600 mb-10">${data.hero.subheadline}</p>
+        <div class="flex gap-4">
+          <button class="px-8 py-4 rounded-lg text-white font-bold gradient-primary">${data.hero.cta1}</button>
+          <button class="px-8 py-4 rounded-lg border-2 font-bold" style="border-color: ${data.colors.primary}; color: ${data.colors.primary};">${data.hero.cta2}</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="px-12 py-20 bg-gray-50">
+      <h2 class="text-5xl font-bold mb-16">Our <span class="text-gradient">Services</span></h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        ${data.features.map((feature, i) => `
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition">
+          <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center text-white font-bold text-xl mb-6">
+            ${i + 1}
+          </div>
+          <h3 class="text-2xl font-bold mb-4">${feature.title}</h3>
+          <p class="text-gray-600">${feature.description}</p>
+        </div>
+        `).join('')}
+      </div>
+    </section>
+
+    <section id="portfolio" class="px-12 py-20">
+      <h2 class="text-5xl font-bold mb-16">Our <span class="text-gradient">Work</span></h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        ${data.images.feature.map((img, i) => `
+        <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="${img}" alt="Project ${i + 1}" class="w-full h-80 object-cover">
+        </div>
+        `).join('')}
+      </div>
+    </section>
+
+    <section id="contact" class="px-12 py-20 bg-gray-50">
+      <div class="max-w-2xl">
+        <h2 class="text-5xl font-bold mb-8">Let's <span class="text-gradient">Talk</span></h2>
+        <p class="text-xl text-gray-600 mb-10">${data.hero.subheadline}</p>
+        <form class="space-y-6">
+          <input type="text" placeholder="Name" class="w-full px-6 py-4 rounded-lg border border-gray-300">
+          <input type="email" placeholder="Email" class="w-full px-6 py-4 rounded-lg border border-gray-300">
+          <textarea placeholder="Message" rows="5" class="w-full px-6 py-4 rounded-lg border border-gray-300"></textarea>
+          <button type="submit" class="px-8 py-4 rounded-lg text-white font-bold gradient-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="px-12 py-8 bg-gray-900 text-white">
+      <p class="text-gray-400">&copy; 2024 ${data.appName}. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>`;
+}
+
+// Template selector based on app type with more variety
 export function selectTemplate(appType: string, data: TemplateData): string {
+  // Add some randomization for variety
+  const randomSeed = data.appName.length % 2;
+
   switch (appType) {
     case 'saas':
+      return randomSeed === 0 ? generateModernSplitLayout(data) : generateBentoLayout(data);
+
     case 'agency':
+      return generateSidebarLayout(data);
+
     case 'healthcare':
       return generateModernSplitLayout(data);
 
     case 'restaurant':
-    case 'fitness':
-    case 'realestate':
-    case 'ecommerce':
       return generateFullWidthHeroLayout(data);
 
+    case 'fitness':
+      return randomSeed === 0 ? generateFullWidthHeroLayout(data) : generateCardGridLayout(data);
+
+    case 'realestate':
+      return generateBentoLayout(data);
+
+    case 'ecommerce':
+      return generateCardGridLayout(data);
+
     case 'portfolio':
+      return randomSeed === 0 ? generateMinimalistLayout(data) : generateSidebarLayout(data);
+
     case 'creative':
       return generateMinimalistLayout(data);
 
