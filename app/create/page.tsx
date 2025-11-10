@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { generateWebAppFromPrompt, analyzePrompt } from '@/lib/prompt-generator';
 import { generateMultiPageWebsite } from '@/lib/multi-page-generator';
 import { generateReactProject } from '@/lib/react-project-generator';
-import JSZip from 'jszip';
 import { supabase } from '@/lib/supabase';
 
 export default function CreatePage() {
@@ -75,6 +74,9 @@ export default function CreatePage() {
     if (!prompt) return;
 
     try {
+      // Dynamically import JSZip (only on client side)
+      const JSZip = (await import('jszip')).default;
+
       // Generate React project files
       const projectFiles = generateReactProject(prompt);
       const projectName = appAnalysis?.appName.toLowerCase().replace(/\s+/g, '-') || 'app';
