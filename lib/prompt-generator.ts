@@ -497,6 +497,113 @@ function generateIndustryContent(analysis: PromptAnalysis): string {
   </section>
   ` : ''}
 
+  <section id="about" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-4">
+          About <span class="text-gradient">${analysis.appName}</span>
+        </h2>
+        <p class="text-xl text-gray-600">Our Story and Mission</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Who We Are</h3>
+          <p class="text-lg text-gray-600 mb-6">
+            ${template.hero.subheadline} We're passionate about delivering excellence and helping our customers succeed.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Founded with a vision to transform the industry, we've grown into a trusted partner for thousands of satisfied customers worldwide.
+          </p>
+          <div class="grid grid-cols-2 gap-6 mt-8">
+            ${template.stats ? template.stats.slice(0, 2).map(stat => `
+            <div>
+              <div class="text-4xl font-bold text-gradient mb-2">${stat.value}</div>
+              <div class="text-gray-600">${stat.label}</div>
+            </div>
+            `).join('') : `
+            <div>
+              <div class="text-4xl font-bold text-gradient mb-2">100+</div>
+              <div class="text-gray-600">Customers Served</div>
+            </div>
+            <div>
+              <div class="text-4xl font-bold text-gradient mb-2">5+</div>
+              <div class="text-gray-600">Years Experience</div>
+            </div>
+            `}
+          </div>
+        </div>
+        <div class="bg-gray-100 rounded-3xl p-12 text-center">
+          <div class="w-32 h-32 mx-auto rounded-full gradient-primary flex items-center justify-center text-white text-6xl font-bold mb-6">
+            ${analysis.appName.charAt(0).toUpperCase()}
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Our Mission</h4>
+          <p class="text-gray-600">
+            To provide exceptional ${template.type === 'saas' ? 'software solutions' : template.type === 'ecommerce' ? 'products' : template.type === 'restaurant' ? 'dining experiences' : template.type === 'fitness' ? 'fitness services' : template.type === 'healthcare' ? 'healthcare' : 'services'} that make a real difference in people's lives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold mb-4">
+          Get In <span class="text-gradient">Touch</span>
+        </h2>
+        <p class="text-xl text-gray-600">We'd love to hear from you</p>
+      </div>
+      <div class="bg-white rounded-3xl p-12 shadow-lg">
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-2 text-gray-700">Name</label>
+              <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-opacity-50" placeholder="Your name" style="focus:ring-color: ${colors.primary};">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2 text-gray-700">Email</label>
+              <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-opacity-50" placeholder="your@email.com" style="focus:ring-color: ${colors.primary};">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-700">Subject</label>
+            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-opacity-50" placeholder="How can we help?" style="focus:ring-color: ${colors.primary};">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-700">Message</label>
+            <textarea rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-opacity-50" placeholder="Tell us more..." style="focus:ring-color: ${colors.primary};"></textarea>
+          </div>
+          <button type="submit" class="w-full py-4 rounded-lg text-white font-bold text-lg hover:shadow-xl transition gradient-primary">
+            Send Message
+          </button>
+        </form>
+        <div class="grid md:grid-cols-3 gap-8 mt-12 pt-12 border-t border-gray-200">
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-lg gradient-primary flex items-center justify-center text-white text-xl font-bold">
+              📧
+            </div>
+            <h4 class="font-bold mb-2">Email</h4>
+            <p class="text-gray-600">hello@${analysis.appName.toLowerCase().replace(/\s+/g, '')}.com</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-lg gradient-primary flex items-center justify-center text-white text-xl font-bold">
+              📞
+            </div>
+            <h4 class="font-bold mb-2">Phone</h4>
+            <p class="text-gray-600">+1 (555) 123-4567</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-lg gradient-primary flex items-center justify-center text-white text-xl font-bold">
+              📍
+            </div>
+            <h4 class="font-bold mb-2">Location</h4>
+            <p class="text-gray-600">123 Main Street<br>City, State 12345</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 px-4">
     <div class="max-w-4xl mx-auto text-center gradient-primary rounded-3xl p-16 text-white">
       <h2 class="text-5xl font-bold mb-6">Ready to Get Started?</h2>
