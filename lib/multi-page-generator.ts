@@ -181,9 +181,71 @@ function createFooter(analysis: PromptAnalysis): string {
 
 export function generateMultiPageWebsite(prompt: string): string {
   const analysis = analyzePrompt(prompt);
+
+  // Get industry template data
+  const industryTemplates = {
+    saas: {
+      hero: {
+        headline: 'Streamline Your Workflow',
+        subheadline: 'The all-in-one platform that helps teams collaborate, automate, and achieve more',
+        cta1: 'Start Free Trial',
+        cta2: 'Watch Demo'
+      },
+      features: [
+        { title: 'Real-Time Collaboration', description: 'Work together seamlessly with your team in real-time' },
+        { title: 'Advanced Analytics', description: 'Get deep insights into your data with powerful analytics' },
+        { title: 'Automation Tools', description: 'Automate repetitive tasks and save hours every week' },
+        { title: 'Integrations', description: 'Connect with your favorite tools and apps' },
+        { title: 'Secure & Reliable', description: 'Enterprise-grade security with 99.9% uptime' },
+        { title: '24/7 Support', description: 'Our team is here to help you succeed' }
+      ],
+      stats: [
+        { value: '50K+', label: 'Active Users' },
+        { value: '1M+', label: 'Tasks Completed' },
+        { value: '99.9%', label: 'Uptime' },
+        { value: '24/7', label: 'Support' }
+      ]
+    },
+    default: {
+      hero: {
+        headline: 'Welcome to Your New Website',
+        subheadline: 'A modern, professional website built just for you',
+        cta1: 'Get Started',
+        cta2: 'Learn More'
+      },
+      features: [
+        { title: 'Fast & Responsive', description: 'Lightning-fast performance on all devices' },
+        { title: 'Modern Design', description: 'Clean, contemporary aesthetics that stand out' },
+        { title: 'Easy to Use', description: 'Intuitive interface for seamless navigation' },
+        { title: 'Secure', description: 'Built with security best practices in mind' },
+        { title: 'Scalable', description: 'Grows with your business needs' },
+        { title: '24/7 Support', description: 'Always here to help when you need us' }
+      ]
+    }
+  };
+
+  const template = (industryTemplates as any)[analysis.appType] || industryTemplates.default;
   const colors = colorSchemes[analysis.colorScheme as keyof typeof colorSchemes] || colorSchemes.blue;
   const images = getImages(analysis.appType);
 
+  // Use the template layout system
+  const { selectTemplate } = require('./template-layouts');
+
+  const templateData = {
+    appName: analysis.appName,
+    appType: analysis.appType,
+    hero: template.hero,
+    features: template.features,
+    stats: template.stats,
+    testimonial: undefined,
+    colors,
+    images
+  };
+
+  return selectTemplate(analysis.appType, templateData);
+
+  // Old multi-page code kept as backup
+  /*
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -465,4 +527,5 @@ export function generateMultiPageWebsite(prompt: string): string {
   </script>
 </body>
 </html>`;
+  */
 }

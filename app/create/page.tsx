@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Wand2, Sparkles, ArrowRight, Download, Eye, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { generateWebAppFromPrompt, analyzePrompt } from '@/lib/prompt-generator';
-import { generateMultiPageWebsite } from '@/lib/multi-page-generator';
 import { supabase } from '@/lib/supabase';
 
 export default function CreatePage() {
@@ -33,7 +32,7 @@ export default function CreatePage() {
       const analysis = analyzePrompt(prompt);
       setAppAnalysis(analysis);
 
-      const code = generateMultiPageWebsite(prompt);
+      const code = generateWebAppFromPrompt(prompt);
       setGeneratedCode(code);
 
       const { data, error } = await supabase
