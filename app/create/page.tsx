@@ -5,8 +5,6 @@ import { Wand2, Sparkles, ArrowRight, Download, Eye, Loader2 } from 'lucide-reac
 import Link from 'next/link';
 import { generateWebAppFromPrompt, analyzePrompt } from '@/lib/prompt-generator';
 import { generateMultiPageWebsite } from '@/lib/multi-page-generator';
-import { generateReactProject } from '@/lib/react-project-generator';
-import JSZip from 'jszip';
 import { supabase } from '@/lib/supabase';
 
 export default function CreatePage() {
@@ -72,33 +70,21 @@ export default function CreatePage() {
   }
 
   async function handleDownload() {
-    if (!prompt) return;
+    if (!generatedCode) return;
 
     try {
-      // Generate React project files
-      const projectFiles = generateReactProject(prompt);
-      const projectName = appAnalysis?.appName.toLowerCase().replace(/\s+/g, '-') || 'app';
-
-      // Create ZIP file
-      const zip = new JSZip();
-
-      // Add all files to ZIP
-      Object.entries(projectFiles).forEach(([filepath, content]) => {
-        zip.file(filepath, content);
-      });
-
-      // Generate ZIP and trigger download
-      const blob = await zip.generateAsync({ type: 'blob' });
+      const projectName = appAnalysis?.appName.toLowerCase().replace(/\s+/g, '-') || 'website';
+      const blob = new Blob([generatedCode], { type: 'text/html' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${projectName}.zip`;
+      a.download = `${projectName}.html`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error creating ZIP:', error);
+      console.error('Error creating download:', error);
       alert('Failed to create download. Please try again.');
     }
   }
@@ -266,7 +252,7 @@ export default function CreatePage() {
                   className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-emerald-400 to-cyan-400 text-black rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all"
                 >
                   <Download className="w-5 h-5" />
-                  <span>Download React Project</span>
+                  <span>Download HTML</span>
                 </button>
               </div>
             </div>
