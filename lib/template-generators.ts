@@ -29,7 +29,21 @@ export function generateAIPlatform(custom: CustomizationData, colors: ColorSchem
     .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
     @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
     .float { animation: float 6s ease-in-out infinite; }
+    html { scroll-behavior: smooth; }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body class="font-sans overflow-x-hidden" style="background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); color: white;">
   <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-cyan-500/20">
@@ -112,7 +126,21 @@ export function generateLuxuryFashion(custom: CustomizationData, colors: ColorSc
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
     .playfair { font-family: 'Playfair Display', serif; }
+    html { scroll-behavior: smooth; }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body class="font-sans bg-white text-gray-900">
   <nav class="fixed top-0 w-full z-50 backdrop-blur-sm bg-white/90 border-b border-gray-200">
@@ -180,6 +208,22 @@ export function generateFineDining(custom: CustomizationData, colors: ColorSchem
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${custom.title}</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body class="font-serif bg-zinc-900 text-gray-100">
   <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-zinc-900/80 border-b border-amber-900/30">
@@ -254,6 +298,22 @@ export function generateRealEstate(custom: CustomizationData, colors: ColorSchem
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${custom.title}</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body class="font-sans bg-gray-50">
   <nav class="bg-white shadow-sm sticky top-0 z-50">

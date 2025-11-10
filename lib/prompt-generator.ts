@@ -333,10 +333,27 @@ function generateIndustryContent(analysis: PromptAnalysis): string {
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    * {
+    html {
       scroll-behavior: smooth;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ensure smooth scrolling works for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body class="antialiased" style="background: ${colors.background}; color: ${colors.text};">
   <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200">
