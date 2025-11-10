@@ -9,6 +9,86 @@ type ColorScheme = {
   text: string;
 };
 
+// Pexels stock images organized by category
+const imageLibrary: Record<string, { hero: string; feature: string[] }> = {
+  saas: {
+    hero: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  ecommerce: {
+    hero: 'https://images.pexels.com/photos/6214478/pexels-photo-6214478.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/5625120/pexels-photo-5625120.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  restaurant: {
+    hero: 'https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  fitness: {
+    hero: 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3757376/pexels-photo-3757376.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4720267/pexels-photo-4720267.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  realestate: {
+    hero: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  healthcare: {
+    hero: 'https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/4386476/pexels-photo-4386476.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  portfolio: {
+    hero: 'https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  agency: {
+    hero: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  },
+  default: {
+    hero: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    feature: [
+      'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ]
+  }
+};
+
+function getImages(appType: string) {
+  return imageLibrary[appType] || imageLibrary.default;
+}
+
 // This is a simplified template for multi-page generation
 const defaultTemplate = {
   hero: {
@@ -102,6 +182,7 @@ function createFooter(analysis: PromptAnalysis): string {
 export function generateMultiPageWebsite(prompt: string): string {
   const analysis = analyzePrompt(prompt);
   const colors = colorSchemes[analysis.colorScheme as keyof typeof colorSchemes] || colorSchemes.blue;
+  const images = getImages(analysis.appType);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -131,33 +212,52 @@ export function generateMultiPageWebsite(prompt: string): string {
     ${createNavigation(analysis, colors, 'home')}
     <section class="pt-32 pb-20 px-4">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center">
-          <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-            ${defaultTemplate.hero.headline}
-            <span class="block text-gradient mt-2">${analysis.appName}</span>
-          </h1>
-          <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">
-            ${defaultTemplate.hero.subheadline}
-          </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button class="px-8 py-4 rounded-xl text-white font-bold text-lg hover:shadow-2xl transition gradient-primary">
-              ${defaultTemplate.hero.cta1}
-            </button>
-            <button class="px-8 py-4 rounded-xl font-semibold text-lg border-2 transition hover:bg-gray-50" style="border-color: ${colors.primary}; color: ${colors.primary};">
-              ${defaultTemplate.hero.cta2}
-            </button>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              ${defaultTemplate.hero.headline}
+              <span class="block text-gradient mt-2">${analysis.appName}</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-10">
+              ${defaultTemplate.hero.subheadline}
+            </p>
+            <div class="flex flex-col sm:flex-row items-start gap-4">
+              <button class="px-8 py-4 rounded-xl text-white font-bold text-lg hover:shadow-2xl transition gradient-primary">
+                ${defaultTemplate.hero.cta1}
+              </button>
+              <button class="px-8 py-4 rounded-xl font-semibold text-lg border-2 transition hover:bg-gray-50" style="border-color: ${colors.primary}; color: ${colors.primary};">
+                ${defaultTemplate.hero.cta2}
+              </button>
+            </div>
+          </div>
+          <div>
+            <img src="${images.hero}" alt="${analysis.appName}" class="rounded-3xl shadow-2xl w-full h-auto object-cover" style="max-height: 600px;">
           </div>
         </div>
       </div>
     </section>
 
     <section class="py-20 px-4 bg-gray-50">
-      <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-4">Welcome to <span class="text-gradient">${analysis.appName}</span></h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">${analysis.description}</p>
-        <a href="?page=features" class="inline-block px-8 py-4 rounded-xl text-white font-bold text-lg hover:shadow-2xl transition gradient-primary">
-          Explore Features
-        </a>
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4">Welcome to <span class="text-gradient">${analysis.appName}</span></h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">${analysis.description}</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          ${images.feature.map((img, i) => `
+          <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="${img}" alt="Feature ${i + 1}" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+              <h3 class="text-white font-bold text-xl">${defaultTemplate.features[i]?.title || 'Feature'}</h3>
+            </div>
+          </div>
+          `).join('')}
+        </div>
+        <div class="text-center">
+          <a href="?page=features" class="inline-block px-8 py-4 rounded-xl text-white font-bold text-lg hover:shadow-2xl transition gradient-primary">
+            Explore Features
+          </a>
+        </div>
       </div>
     </section>
     ${createFooter(analysis)}
