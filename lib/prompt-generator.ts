@@ -778,7 +778,25 @@ function generateIndustryContent(analysis: PromptAnalysis): string {
 
 export function generateWebAppFromPrompt(prompt: string): string {
   const analysis = analyzePrompt(prompt);
-  return generateIndustryContent(analysis);
+  const template = industryTemplates[analysis.appType] || industryTemplates.saas;
+  const colors = colorSchemes[analysis.colorScheme as keyof typeof colorSchemes] || colorSchemes.blue;
+  const images = getImages(analysis.appType);
+
+  // Import and use the template layout system
+  const { selectTemplate } = require('./template-layouts');
+
+  const templateData = {
+    appName: analysis.appName,
+    appType: analysis.appType,
+    hero: template.hero,
+    features: template.features,
+    stats: template.stats,
+    testimonial: template.testimonial,
+    colors,
+    images
+  };
+
+  return selectTemplate(analysis.appType, templateData);
 }
 
 export type { PromptAnalysis };
