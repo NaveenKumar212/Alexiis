@@ -281,7 +281,7 @@ export default function CreatePage() {
                   srcDoc={generatedCode}
                   className="w-full h-full"
                   title="Website Preview"
-                  sandbox="allow-scripts"
+                  sandbox="allow-scripts allow-same-origin allow-popups"
                 />
               </div>
             </div>

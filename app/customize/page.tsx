@@ -491,7 +491,7 @@ function CustomizeContent() {
               <iframe
                 srcDoc={generatedCode}
                 className="w-full h-full border-0"
-                sandbox="allow-scripts"
+                sandbox="allow-scripts allow-same-origin allow-popups"
               />
             ) : (
               <pre className="w-full h-full overflow-auto p-6 bg-gray-900 text-gray-100 text-sm">
