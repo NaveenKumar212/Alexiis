@@ -23,40 +23,45 @@ A modern, production-ready web application that generates stunning websites usin
 
 ## Getting Started
 
+### 🚀 Quick Setup (5 minutes)
+
+**New to this project?** Follow our quick setup guide:
+
+👉 **[QUICKSTART.md](./QUICKSTART.md)** - Get running in 5 minutes!
+
+👉 **[SETUP.md](./SETUP.md)** - Complete detailed setup guide with troubleshooting
+
 ### Prerequisites
 
 - Node.js 18+
 - npm or yarn
 - Supabase account
 
-### Installation
+### Quick Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone <your-repo-url>
-   cd nextjs-app
-   ```
-
-2. **Install dependencies**:
+1. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Configure environment variables**:
+2. **Create Supabase project** at [supabase.com](https://supabase.com)
 
-   Create a `.env` file in the root directory:
+3. **Run database migrations** in Supabase SQL Editor (see SETUP.md)
+
+4. **Create `.env` file** in project root:
    ```env
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
-4. **Run the development server**:
+5. **Start the dev server**:
    ```bash
    npm run dev
    ```
 
-5. **Open your browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000)
+6. **Open browser**: [http://localhost:3000](http://localhost:3000)
+
+**Having issues?** Check [SETUP.md](./SETUP.md) for detailed instructions and troubleshooting.
 
 ## Project Structure
 
