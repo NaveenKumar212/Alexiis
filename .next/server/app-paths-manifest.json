@@ -1,6 +1,4 @@
 {
-  "/generate/page": "app/generate/page.js",
-  "/customize/page": "app/customize/page.js",
   "/page": "app/page.js",
   "/create/page": "app/create/page.js"
 }
